@@ -8,6 +8,13 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get("/", async (req, res) => {
+      res.status(200).json({
+      title: "Express Testing",
+      message: "The app is working properly!",
+    });
+  });
+
 app.post('/login', async (req, res) => {
     const { username } = req.body;
 
