@@ -1,4 +1,3 @@
-// Import packages
 const express = require("express");
 const api = require("./routes/api");
 const cors = require('cors'); 

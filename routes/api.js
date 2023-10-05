@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
     const { username } = req.body;
 
     try {
-        const response = await axios.get("https://script.googleusercontent.com/macros/echo?user_content_key=5jxfAncj4_ihkP_lalhQLfghWylLQqZ72f9WiLwVK5sdWSgz7g60GUA_M2VMONylFfG11hNy9psu8bh8rNXQgyyiZFivcijMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHj4gAiIGjE4xL1vv0st3WJABTnVzRDtjQr3Gb7bqgxdBIUHWR6AtyZzfAsHyERlSQ7iJvv3hRGDqDz9-ZsXkcumkXe2Dv-Rztz9Jw9Md8uu&lib=MeBOrW6M7bORH8xoUngEqjWlXADVrvMRU");
+        const response = await axios.get("https://script.google.com/macros/s/AKfycbxjZxeVGfuwuT3jCgaqKhmlOZd9lvIps8VPKW2NkujTQHLuj7uAVLZ47xuXq3cupA_Abw/exec");
         const data = response.data;
 
         const user = data.data.find(user => user.Email === username);
