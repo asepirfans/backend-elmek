@@ -1,13 +1,15 @@
 // Import packages
 const express = require("express");
-const home = require("./routes/home");
+const api = require("./routes/api");
+const cors = require('cors'); 
 
 // Middlewares
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Routes
-app.use("/home", home);
+app.use("/api", api);
 
 // connection
 const port = process.env.PORT || 9001;
