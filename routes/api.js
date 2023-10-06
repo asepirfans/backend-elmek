@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
     const { username } = req.body;
 
     try {
-        const response = await axios.get("https://script.google.com/macros/s/AKfycbxjZxeVGfuwuT3jCgaqKhmlOZd9lvIps8VPKW2NkujTQHLuj7uAVLZ47xuXq3cupA_Abw/exec");
+        const response = await axios.get("https://script.google.com/macros/s/AKfycbzjrSB5d2fXQqzZ4zEXO3DBcebV4bIrpjTAu7YOySXRzkKWzLs5Co5iv1tTvmtAnkmF/exec");
         const data = response.data;
 
         const user = data.data.find(user => user.Email === username);
@@ -38,7 +38,7 @@ router.post('/konfirmasi', async (req, res) => {
             kaLab: kaLab,
             ppcAE: ppcAE
         };
-        const response = await axios.post("https://script.google.com/macros/s/AKfycby9J_TwNBu2Zuaa69U8IrkCYpScRF_CnaP-R2gP5Pl2giNQ9JN6jFT7MfHMHACUlmLSTg/exec", requestBody);
+        const response = await axios.post("https://script.google.com/macros/s/AKfycby-CsqtaPza5rlpxO8Bpcem4peBxv19AmqjJMMZHKR3E0rFN2aumKexSqjT9PwLRm99/exec", requestBody);
 
         if (response.status === 200 && response.data.success) {
             res.status(200).json({ success: true, message: 'Konfirmasi berhasil' });
