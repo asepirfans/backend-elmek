@@ -10,15 +10,16 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post('/login', async (req, res) => {
-    const { username } = req.body;
+    const { username, roleMode } = req.body;
 
     try {
         const response = await axios.get("https://script.google.com/macros/s/AKfycbzjrSB5d2fXQqzZ4zEXO3DBcebV4bIrpjTAu7YOySXRzkKWzLs5Co5iv1tTvmtAnkmF/exec");
-        const data = response.data;
+        const { data } = response.data;
 
-        const user = data.data.find(user => user.Email === username);
+        const user = data.find(user => user.Email === username);
+        const role = data.find(role => role.Role === roleMode);
 
-        if (user) {
+        if (user && role) {
             res.status(200).json({ success: true, message: 'Login Berhasil' });
         } else {
             res.status(404).json({ success: false, message: 'User tidak ada' });
