@@ -52,4 +52,24 @@ router.post('/konfirmasi', async (req, res) => {
     }
 });
 
+router.post('/tolak', async (req, res) => {
+    const url = 'https://script.google.com/macros/s/AKfycby9RmZT9RrWcyR9V54nvykHUwEEMnr-Y7Ld3c0SZX7QOu2xbW1ihzUiRxRuhsp9Q_CB/exec';
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
+      });
+  
+      const data = await response.json();
+      res.json(data);
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ success: false, error: 'Internal Server Error' });
+    }
+})
+
 module.exports = router;
